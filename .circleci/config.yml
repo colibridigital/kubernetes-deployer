@@ -1,0 +1,43 @@
+version: 2.1
+jobs:
+    build-push-helm2-alpine:
+    machine:
+        image: ubuntu-1604:201903-01
+        resource_class: large
+        docker_layer_caching: true
+    steps:
+        - checkout
+        - run:
+            name: build deployment image
+            command: docker build -t colibridigital/kubernetes-deployer:helm2-alpine helm2-alpine/
+        - run:
+            name: push deployment image to dockerhub
+            command: docker push colibridigital/kubernetes-deployer:helm2-alpine
+
+    build-push-helm3-alpine:
+        machine:
+            image: ubuntu-1604:201903-01
+            resource_class: large
+            docker_layer_caching: true
+        steps:
+        - checkout
+        - run:
+            name: build deployment image
+            command: docker build -t colibridigital/kubernetes-deployer:helm3-alpine helm3-alpine/
+        - run:
+            name: push deployment image to dockerhub
+            command: |
+            docker push colibridigital/kubernetes-deployer:helm3-alpine
+
+workflows:
+    version: 2.1
+    build-push-images:
+        jobs:
+        - build-push-helm2-alpine:
+            filters:
+                branches:
+                only: master
+        - build-push-helm3-alpine:
+            filters:
+                branches:
+                only: master
