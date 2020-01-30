@@ -1,5 +1,5 @@
 # Kubernetes Deployer
-Git Repo for a super userful Kubernetes deployment image based on Alpine.  Contains a bunch of handy dependencies, making it an ideal image to use when deploying applications onto Kubernetes from a CI system.
+Git Repo for a super userful Kubernetes deployment image based on Alpine or Ubuntu.  Contains a bunch of handy dependencies, making it an ideal image to use when deploying applications onto Kubernetes from a CI system.
 
 ## Libs Included
 - Kubectl
