@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/colibridigital/kubernetes-deployer.svg?style=svg)](https://circleci.com/gh/colibridigital/kubernetes-deployer)
+
 # Kubernetes Deployer
 Git Repo for a super userful Kubernetes deployment image based on Alpine or Ubuntu.  Contains a bunch of handy dependencies, making it an ideal image to use when deploying applications onto Kubernetes from a CI system.
 
