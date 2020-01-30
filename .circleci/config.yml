@@ -75,16 +75,16 @@ workflows:
         - build-push-helm2-alpine:
             filters:
                 branches:
-                only: master
+                    only: master
         - build-push-helm3-alpine:
             filters:
                 branches:
-                only: master
+                    only: master
         - build-push-helm2-ubuntu:
             filters:
                 branches:
-                only: master
+                    only: master
         - build-push-helm3-ubuntu:
             filters:
                 branches:
-                only: master
+                    only: master
