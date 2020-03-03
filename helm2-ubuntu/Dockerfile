@@ -13,7 +13,7 @@ RUN apt-get update \
     && apt-get install jq -y \
     && apt-get install -y unzip \
     && curl -sL https://aka.ms/InstallAzureCLIDeb | bash \
-    && rm -rf /var/cache/apk/* \
+    && rm -rf /var/cache/apk/*
 
 RUN mkdir -p /tmp/helm \
     && curl -LO https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl \

@@ -14,6 +14,7 @@ RUN apt-get update \
     && apt-get install jq -y \
     && curl -sL https://aka.ms/InstallAzureCLIDeb | bash \
     && rm -rf /var/cache/apk/* \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /tmp/helm \
     && curl -LO https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl \
@@ -23,7 +24,8 @@ RUN mkdir -p /tmp/helm \
     && mv /tmp/helm/linux-amd64/helm /usr/bin/helm \
     && rm -rf /tmp/helm \
     && rm -rf /var/cache/apk/* \
-    && rm -rf /root/.cache
+    && rm -rf /root/.cache \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN cd /usr/local/bin && \
     curl https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip -o terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
