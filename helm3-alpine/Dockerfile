@@ -3,7 +3,7 @@ FROM alpine:3.10
 LABEL maintainer="james.cross@colibridigital.io"
 
 ARG KUBE_VERSION=1.16.2
-ARG HELM_VERSION=3.0.3
+ARG HELM_VERSION=3.1.0
 ENV TERRAFORM_VERSION=0.12.20
 
 ENV PATH ~/.local/bin:$PATH

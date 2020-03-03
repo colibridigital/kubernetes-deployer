@@ -10,8 +10,10 @@ RUN apt-get update \
     && apt install software-properties-common -y \
     && apt-get install git -y \
     && apt-get install curl -y \
+    && apt-get install jq -y \
     && apt-get install -y unzip \
-    && curl -sL https://aka.ms/InstallAzureCLIDeb | bash 
+    && curl -sL https://aka.ms/InstallAzureCLIDeb | bash \
+    && rm -rf /var/cache/apk/* \
 
 RUN mkdir -p /tmp/helm \
     && curl -LO https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl \

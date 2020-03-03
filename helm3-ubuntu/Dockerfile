@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 LABEL maintainer="andreas.adamides@colibridigital.io"
 
 ARG KUBE_VERSION=1.16.2
-ARG HELM_VERSION=3.0.3
+ARG HELM_VERSION=3.1.0
 ENV TERRAFORM_VERSION=0.12.20
 
 RUN apt-get update \
@@ -11,7 +11,9 @@ RUN apt-get update \
     && apt-get install git -y \
     && apt-get install curl -y \
     && apt-get install -y unzip \
-    && curl -sL https://aka.ms/InstallAzureCLIDeb | bash 
+    && apt-get install jq -y \
+    && curl -sL https://aka.ms/InstallAzureCLIDeb | bash \
+    && rm -rf /var/cache/apk/* \
 
 RUN mkdir -p /tmp/helm \
     && curl -LO https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl \
