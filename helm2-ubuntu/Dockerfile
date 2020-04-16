@@ -4,7 +4,7 @@ LABEL maintainer="andreas.adamides@colibridigital.io"
 
 ARG KUBE_VERSION=1.16.2
 ARG HELM_VERSION=2.16.1
-ENV TERRAFORM_VERSION=0.12.20
+ENV TERRAFORM_VERSION=0.12.24
 
 RUN apt-get update \
     && apt install software-properties-common -y \
@@ -21,6 +21,9 @@ RUN mkdir -p /tmp/helm \
     && mv ./kubectl /usr/bin/kubectl \
     && curl https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}-linux-amd64.tar.gz | tar -xzv -C /tmp/helm \
     && mv /tmp/helm/linux-amd64/helm /usr/bin/helm \
+    && curl -LO https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_linux_amd64 \
+    && chmod +x terragrunt_linux_amd64 \
+    && mv terragrunt_linux_amd64 /usr/bin/terragrunt \
     && rm -rf /tmp/helm \
     && rm -rf /var/cache/apk/* \
     && rm -rf /root/.cache

@@ -7,6 +7,7 @@ Git Repo for a super userful Kubernetes deployment image based on Alpine or Ubun
 - Kubectl
 - Helm
 - Terraform
+- Terragrunt
 - AWS CLI
 - Azure CLI
 - Python3

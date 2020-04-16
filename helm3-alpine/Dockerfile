@@ -4,7 +4,8 @@ LABEL maintainer="james.cross@colibridigital.io"
 
 ARG KUBE_VERSION=1.16.2
 ARG HELM_VERSION=3.1.0
-ENV TERRAFORM_VERSION=0.12.20
+ENV TERRAFORM_VERSION=0.12.24
+ENV TERRAGRUNT_VERSION=0.23.10
 
 ENV PATH ~/.local/bin:$PATH
 
@@ -28,6 +29,9 @@ RUN \
     && mv ./kubectl /usr/bin/kubectl \
     && curl https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz | tar -xzv -C /tmp/helm \
     && mv /tmp/helm/linux-amd64/helm /usr/bin/helm \
+    && curl -LO https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_linux_amd64 \
+    && chmod +x terragrunt_linux_amd64 \
+    && mv terragrunt_linux_amd64 /usr/bin/terragrunt \
     && rm -rf /tmp/helm \
     && rm -rf /var/cache/apk/* \
     && rm -rf /root/.cache
