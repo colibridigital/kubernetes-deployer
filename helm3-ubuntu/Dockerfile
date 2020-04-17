@@ -4,7 +4,8 @@ LABEL maintainer="andreas.adamides@colibridigital.io"
 
 ARG KUBE_VERSION=1.16.2
 ARG HELM_VERSION=3.1.0
-ENV TERRAFORM_VERSION=0.12.24
+ARG TERRAFORM_VERSION=0.12.24
+ARG TERRAGRUNT_VERSION=0.23.10
 
 RUN apt-get update \
     && apt install software-properties-common -y \
