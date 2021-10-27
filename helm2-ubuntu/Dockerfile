@@ -4,7 +4,7 @@ LABEL maintainer="andreas.adamides@colibridigital.io"
 
 ARG KUBE_VERSION=1.16.2
 ARG HELM_VERSION=2.16.1
-ARG TERRAFORM_VERSION=0.12.24
+ARG TERRAFORM_VERSION=1.0.9
 ARG TERRAGRUNT_VERSION=0.23.10
 
 RUN apt-get update \
